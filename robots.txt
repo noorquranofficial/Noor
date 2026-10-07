@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://noorquranofficial.github.io/Noor/sitemap.xml
