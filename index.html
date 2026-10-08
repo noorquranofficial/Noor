@@ -482,6 +482,7 @@ html[data-theme="dark"] .form-success{color:var(--primary);}
            <a href="#" data-nav="about">ℹ️ <span class="nav-label" data-navkey="about">About</span></a>
 <a href="#" data-nav="sources">📄 <span class="nav-label" data-navkey="sources">Sources &amp; Licensing</span></a>
 <a href="#" data-nav="privacy">🔒 <span class="nav-label" data-navkey="privacy">Privacy Policy</span></a>
+<a href="#" data-nav="disclaimer">⚠️ <span class="nav-label" data-navkey="disclaimer">Disclaimer</span></a>
 <a href="#" data-nav="terms">📜 <span class="nav-label" data-navkey="terms">Terms &amp; Conditions</span></a>
 <a href="#" data-nav="contact">✉️ <span class="nav-label" data-navkey="contact">Contact</span></a>
            
@@ -989,8 +990,69 @@ html[data-theme="dark"] .form-success{color:var(--primary);}
    </section>
    </section>
 
-  <!-- ============ TERMS & CONDITIONS ============ -->
-  <section class="page" id="page-terms">
+<!-- ============ DISCLAIMER ============ -->
+ <section class="page" id="page-disclaimer">
+  <div class="section">
+    <div class="about-hero">
+      <div class="eyebrow">Disclaimer</div>
+      <h2 class="section-title">Disclaimer — Important Information</h2>
+      <p class="section-sub" style="margin:14px auto 0">
+        Noor provides Islamic educational and informational content for general guidance. Please verify important religious, financial, medical, legal or other personal matters with qualified and appropriate professionals.
+      </p>
+    </div>
+
+    <div class="value-grid">
+      <div class="value-card">
+        <h3>Islamic Content</h3>
+        <p>
+          Quran translations, Hadith, Duas, Azkar, Seerah and other Islamic material are provided for educational and informational purposes. Differences in scholarly interpretation may exist, and users should consult qualified scholars for questions requiring a formal religious ruling.
+        </p>
+      </div>
+
+      <div class="value-card">
+        <h3>Prayer Times &amp; Calendar</h3>
+        <p>
+          Prayer times and Hijri calendar information may vary depending on location, calculation method and local authority. Noor does not guarantee that displayed times will exactly match the timings announced by a local mosque or religious authority.
+        </p>
+      </div>
+
+      <div class="value-card">
+        <h3>Zakat Calculator</h3>
+        <p>
+          The Zakat Calculator is provided as a general calculation aid. Zakat rules can vary depending on individual circumstances and scholarly opinions. Please consult a qualified scholar for personalized Zakat guidance.
+        </p>
+      </div>
+
+      <div class="value-card">
+        <h3>External Sources &amp; Links</h3>
+        <p>
+          Noor may use or link to external websites, APIs and third-party services. We are not responsible for the content, availability, accuracy or policies of external services.
+        </p>
+      </div>
+
+      <div class="value-card">
+        <h3>Accuracy &amp; Availability</h3>
+        <p>
+          We make reasonable efforts to keep Noor's information accurate and available, but we do not guarantee that every item is complete, error-free, current or continuously available.
+        </p>
+      </div>
+
+      <div class="value-card">
+        <h3>No Professional Advice</h3>
+        <p>
+          Nothing on Noor should be treated as professional legal, medical, financial or other professional advice. Seek qualified professional assistance whenever appropriate.
+        </p>
+      </div>
+    </div>
+
+    <div class="section" style="padding:28px 0 0">
+      <p class="section-sub">
+        By using Noor, you acknowledge this disclaimer and agree to use the information responsibly.
+      </p>
+    </div>
+  </div>
+</section>
+   <section class="page" id="page-terms">
     <div class="section">
       <div class="section-head">
         <div>
@@ -2643,8 +2705,9 @@ const PAGE_TITLES = {
   hijricalendar:"Hijri Calendar — Noor",
   saved:"Saved Items — Noor", sources:"Sources & Licensing — Noor",
   search:"Search — Noor", about:"About — Noor",
-  privacy:"Privacy Policy — Noor",
-  terms:"Terms & Conditions — Noor",
+privacy:"Privacy Policy — Noor",
+disclaimer:"Disclaimer — Noor",
+terms:"Terms & Conditions — Noor",
   contact:"Contact — Noor"
 };
 function navigate(page){
