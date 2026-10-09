@@ -1953,7 +1953,7 @@ function renderHadithGrid(query){
       <span class="badge cat">${h.cat}</span>
       ${h.arabic ? `<div class="lang-tag">ARABIC</div><div class="arabic" style="font-size:1.3rem; line-height:2.1; margin-bottom:14px">${h.arabic}</div>` : `<div class="lang-tag">ARABIC</div><p style="color:var(--text-soft); font-size:.85rem; margin-bottom:14px">Verified Arabic wording not yet added — see the setup guide.</p>`}
       <div class="lang-tag">URDU</div>
-      ${h.urdu ? `<div class="urdu" style="color:var(--text-muted); margin-bottom:12px">${h.urdu}</div>` : `<p style="color:var(--text-soft); font-size:.85rem; margin-bottom:12px">Urdu translation not yet added — see the setup guide.</p>`}
+      ${h.urdu ? `<div class="urdu" style="color:var(--text-muted); margin-bottom:12px">${h.urdu}</div>` : `<p style="color:var(--text-soft); font-size:.85rem; margin-bottom:12px">Urdu translation is not available for this Hadith yet.</p>`}
       <div class="lang-tag">ENGLISH</div>
       <p class="text">"${h.text}"</p>
       <div class="ref">${h.collection}, Hadith ${h.number}${h.book ? " · "+h.book : ""}</div>
