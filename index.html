@@ -1952,7 +1952,7 @@ function renderHadithGrid(query){
     const id="hadith-"+HADITH.indexOf(h);
     return `<div class="card hadith-card">
       <span class="badge cat">${h.cat}</span>
-      ${h.arabic ? `<div class="lang-tag">ARABIC</div><div class="arabic" style="font-size:1.3rem; line-height:2.1; margin-bottom:14px">${h.arabic}</div>` : `<div class="lang-tag">ARABIC</div><p style="color:var(--text-soft); font-size:.85rem; margin-bottom:14px">Verified Arabic wording not yet added — see the setup guide.</p>`}
+      ${h.arabic ? `<div class="lang-tag">ARABIC</div><div class="arabic" style="font-size:1.3rem; line-height:2.1; margin-bottom:14px">${h.arabic}</div>` : `<div class="lang-tag">ARABIC</div><p style="color:var(--text-soft); font-size:.85rem; margin-bottom:14px">Verified Arabic wording is not available for this item yet.</p>`}
       <div class="lang-tag">URDU</div>
       ${h.urdu ? `<div class="urdu" style="color:var(--text-muted); margin-bottom:12px">${h.urdu}</div>` : `<p style="color:var(--text-soft); font-size:.85rem; margin-bottom:12px">Urdu translation is not available for this Hadith yet.</p>`}
       <div class="lang-tag">ENGLISH</div>
@@ -2023,7 +2023,7 @@ function renderAzkarGrid(){
       <div class="arabic" style="margin-top:12px">${a.arabic}</div>
       <div class="translit">${a.translit}</div>
       <div class="translation" style="color:var(--text-muted)">${a.translation}</div>
-      ${a.urdu ? `<div class="urdu" style="color:var(--text-muted); margin-top:8px">${a.urdu}</div>` : `<p style="color:var(--text-soft); font-size:.78rem; margin-top:8px">Urdu translation not yet added — see the setup guide.</p>`}
+      ${a.urdu ? `<div class="urdu" style="color:var(--text-muted); margin-top:8px">${a.urdu}</div>` : `<p style="color:var(--text-soft); font-size:.78rem; margin-top:8px">Urdu translation is not available for this item yet.</p>`}
       <div class="ref">${a.ref}</div>
     </div>`).join("");
 }
@@ -2052,7 +2052,7 @@ function videoCardHTML(v,i){
       <div class="creator">${v.creator}</div>
       ${v.description ? `<p class="desc">${v.description}</p>` : ""}
       ${v.licenseStatus ? `<p style="color:var(--primary); font-size:.74rem; margin-bottom:8px">✓ ${v.licenseStatus}</p>` : ""}
-      ${!playable ? `<p style="color:var(--text-soft); font-size:.76rem; margin-bottom:10px">⚠ Not yet added — see "Video verification report" in the setup guide.</p>` : ""}
+      ${!playable ? `<p style="color:var(--text-soft); font-size:.76rem; margin-bottom:10px">⚠ This video is not available yet.</p>` : ""}
       <div class="video-actions">
         <button class="${isLiked(id)?'liked':''}" data-like="${id}" ${!playable?"disabled":""}>${isLiked(id)?'❤️':'🤍'} Like</button>
         <button class="${isBookmarked('video',id)?'saved':''}" data-save="${id}" ${!playable?"disabled":""}>${isBookmarked('video',id)?'★':'☆'} Save</button>
@@ -2101,7 +2101,7 @@ function wireVideoActions(wrap){
 // channel's official uploads playlist (playlistId) — both use YouTube's
 // standard, legitimate embed endpoints. No downloading or re-hosting.
 function openVideoModal(v){
-  if(!isPlayable(v)){ showToast("This category doesn't have a verified video yet — see the setup guide."); return; }
+  if(!isPlayable(v)){ showToast("No verified video is available in this category yet."); return; }
   const src = v.type==="playlist"
     ? `https://www.youtube.com/embed/videoseries?list=${v.playlistId}`
     : `https://www.youtube.com/embed/${v.youtubeId}?autoplay=1`;
