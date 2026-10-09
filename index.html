@@ -1904,7 +1904,8 @@ async function loadAndRenderSurahText(number){
   const data = live || SURAH_TEXT_FALLBACK[number];
 
   if(!data){
-    wrap.innerHTML = `<div class="card no-text-note">This surah's text could not be loaded right now.<br>This page fetches the Quran live from an online source — please check your internet connection and reopen this surah.<br><br>You can also add a permanent offline copy — see "How to add Quran text" in the setup guide.</div>`;
+wrap.innerHTML = `<div class="card no-text-note">This surah's text could not be loaded right now.<br>This page fetches the Quran live from an online source — please check your internet connection and try again later.</div>`;
+
     return;
   }
 
