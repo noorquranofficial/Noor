@@ -442,11 +442,10 @@ html[data-theme="dark"] .form-success{color:var(--primary);}
 .onboard-card .ob-ic{font-size:1.3rem; flex:none;}
 .onboard-card .ob-ur{display:block; margin-top:2px; color:var(--text-soft); font-size:.9rem;}
 </style>
-<!-- EmailJS SDK: a real, client-side email-sending service (no backend needed).
-     The Contact form uses this IF you connect your own free EmailJS account —
-     see EMAILJS_CONFIG in the script below and the setup guide at the end of
-     this file. Without your own credentials, the form safely falls back to
-     saving messages locally rather than pretending to send email. -->
+<!-- EmailJS SDK: Noor's contact form uses EmailJS for email delivery.
+     If EmailJS is not configured or its library is unavailable, the form may
+     save messages in this browser's local storage instead. That fallback
+     does not email the message to Noor. -->
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 <body>
@@ -690,7 +689,12 @@ html[data-theme="dark"] .form-success{color:var(--primary);}
           <button class="btn btn-primary" id="ptSearchBtn" style="height:47px">Get Prayer Times</button>
           <button class="btn btn-outline" id="ptLocateBtn" style="height:47px">📍 Use my location</button>
         </div>
-        <p style="color:var(--text-soft); font-size:.78rem; margin-top:12px">Source: Aladhan API (api.aladhan.com) · Calculation method: default is the Islamic Society of North America (ISNA); change it in code if your region uses a different authority — see the setup guide.</p>
+<p style="color:var(--text-soft); font-size:.78rem; margin-top:12px">
+  Source: Aladhan API (api.aladhan.com) · Calculation method: ISNA by default.
+  Prayer times may vary by location and calculation method. Choose the method
+  appropriate for your region when available.
+</p>
+
       </div>
 
       <div id="prayerTimesResult"></div>
