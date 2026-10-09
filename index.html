@@ -2841,16 +2841,14 @@ $("#ptLocateBtn").addEventListener("click", ()=>{
   );
 });
 // ============================================================================
-// CONTACT FORM — EmailJS integration (real, client-side, no backend server
-// required). To make the form actually deliver email to your inbox:
-//   1. Create a free account at https://www.emailjs.com
-//   2. Add an Email Service (e.g. connect your Gmail) → copy its Service ID
-//   3. Create an Email Template with {{name}}, {{email}}, {{message}} fields → copy its Template ID
-//   4. Account → API Keys → copy your Public Key
-//   5. Paste all three into EMAILJS_CONFIG below.
-// Until you do this, EMAILJS_CONFIG below contains placeholders, and the form
-// honestly falls back to saving messages in the browser's local storage
-// instead of pretending to send an email that isn't actually configured.
+// CONTACT FORM — EmailJS integration (client-side, no backend server required).
+// EmailJS has been configured for Noor.
+// The form sends contact messages through EmailJS when the service is available.
+// If the email service is unavailable or sending fails, the form may not deliver
+// the message. The user should check the on-screen confirmation.
+// Keep the EMAILJS_CONFIG values configured below.
+// Never put private account passwords or secret keys in this file.
+
 // ============================================================================
 const EMAILJS_CONFIG = {
   publicKey: "qlGA-gTXfqLHvkvsk",
@@ -2889,12 +2887,13 @@ $("#contactForm").addEventListener("submit",(e)=>{
       console.error("EmailJS error:", err);
     });
   } else {
-    // Honest fallback: no email service is connected yet, so the message is
-    // saved locally rather than claiming it was emailed anywhere.
+   // Fallback: if EmailJS is not configured or unavailable,
+// the message is saved in this browser's local storage.
+// No email is sent by this fallback.
     const messages = JSON.parse(localStorage.getItem("noor_messages")||"[]");
     messages.push({name:name.value, email:email.value, message:msg.value, date:new Date().toISOString()});
     localStorage.setItem("noor_messages", JSON.stringify(messages));
-    finish("Your message has been saved on this device. Email delivery isn't connected yet — see the setup guide to enable it. 🌿");
+finish("Your message has been saved in this browser. It has not been emailed. 🌿");
   }
 });
 function toggleFieldError(fieldId, ok){ $("#"+fieldId).classList.toggle("invalid", !ok); }
