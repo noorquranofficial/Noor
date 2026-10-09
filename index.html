@@ -2852,9 +2852,9 @@ $("#ptLocateBtn").addEventListener("click", ()=>{
 // instead of pretending to send an email that isn't actually configured.
 // ============================================================================
 const EMAILJS_CONFIG = {
-  publicKey: "YOUR_EMAILJS_PUBLIC_KEY",
-  serviceId: "YOUR_EMAILJS_SERVICE_ID",
-  templateId: "YOUR_EMAILJS_TEMPLATE_ID"
+  publicKey: "qlGA-gTXfqLHvkvsk",
+  serviceId: "service_d1sxdw9",
+  templateId: "template_6fn5v6c"
 };
 const emailjsConfigured = !Object.values(EMAILJS_CONFIG).some(v=>v.startsWith("YOUR_"));
 if(emailjsConfigured && window.emailjs){ emailjs.init({publicKey: EMAILJS_CONFIG.publicKey}); }
