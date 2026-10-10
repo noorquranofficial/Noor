@@ -880,18 +880,12 @@ html[data-theme="dark"] .form-success{color:var(--primary);}
         <h3 style="color:var(--text); margin-bottom:8px">6. Third-Party Services</h3>
        <p style="margin-bottom:20px">
   Some Noor features rely on third-party services, including
-  Quran data services, prayer-time APIs, EmailJS and embedded YouTube
-  content. These services may process information according to their own
+Quran data services, prayer-time APIs and EmailJS.
+These services may process information according to their own
   privacy policies and terms.
 </p>
 
-        <h3 style="color:var(--text); margin-bottom:8px">7. YouTube Content</h3>
-        <p style="margin-bottom:20px">
-          Some Islamic videos may be displayed through YouTube's embedded player.
-          YouTube may process information according to Google's applicable privacy
-          policies and settings.
-        </p>
-
+   
         <h3 style="color:var(--text); margin-bottom:8px">8. Advertising</h3>
        <p style="margin-bottom:20px">
   Noor does not currently promise or guarantee personalized
@@ -1534,32 +1528,6 @@ const AZKAR = [
     translation:"Glory be to Allah, and praise be to Him — a phrase light on the tongue but heavy on the scale, beloved to the Most Merciful.", repeat:"100 times", ref:"Sahih al-Bukhari 6405; Sahih Muslim 2692"}
 ];
 
-// ============================================================================
-// VIDEOS — verification report (read this before adding more):
-//
-// VERIFIED AND ADDED:
-//   Source: Yaqeen Institute for Islamic Research (nonprofit)
-//   Channel: youtube.com/@yaqeeninstituteofficial
-//   Why it's safe: Yaqeen's own site (yaqeeninstitute.org/watch) explicitly
-//   states its video content "is explicitly licensed for free educational
-//   use" for teachers, imams and study circles. We embed their own official
-//   YouTube "uploads" feed — a playlist YouTube itself auto-generates for a
-//   channel (ID pattern UU + channel ID) — so every video shown is
-//   guaranteed to be their own upload, not a re-upload by someone else.
-//   Embedding uses the standard YouTube iframe embed player only; nothing is
-//   downloaded, copied, or re-hosted, and the channel name/link stays
-//   attached automatically via the YouTube player itself.
-//
-// NOT INCLUDED (could not verify to a standard I'm confident in, even after a
-//   second research pass): Quran Recitation, Dua, Azkar. Individual videos
-//   found for these came from third-party re-upload channels, not a
-//   confirmed official/rights-holder channel, so none were added — and no
-//   placeholder card is shown for them either, per the site owner's request
-//   to remove anything that isn't actually verified. I also checked Bayyinah
-//   Institute (Nouman Ali Khan's official channel) as a candidate, but found
-//   no explicit reuse-license statement comparable to Yaqeen's. See the guide
-//   at the end of this file for how to verify and add a video yourself
-//   (confirm the uploader is the true rights-holder and embedding is on).
 // ============================================================================
 
 ];
@@ -2845,8 +2813,8 @@ function updateOfflineBanner(){
   const b = $("#offlineBanner");
   if(!b) return;
   const ur = state.uiLang === "ur";
-  b.textContent = ur ? "آپ آف لائن ہیں — قرآن، آڈیو، نماز کے اوقات اور ویڈیوز کے لیے انٹرنیٹ ضروری ہے۔"
-                     : "You're offline — Quran text, audio, prayer times and videos need an internet connection.";
+b.textContent = ur ? "آپ آف لائن ہیں — قرآن، آڈیو اور نماز کے اوقات کے لیے انٹرنیٹ ضروری ہے۔"
+                   : "You're offline — Quran text, audio and prayer times need an internet connection.";
   b.classList.toggle("ur-text", ur);
   b.classList.toggle("show", !navigator.onLine);
 }
@@ -2920,7 +2888,7 @@ const manifest = {
       self.addEventListener("activate", e => self.clients.claim());
       self.addEventListener("fetch", e => {
         // Only serve the cached app shell when fully offline; everything else
-        // (Quran API, prayer times, videos, maps) always goes to the network.
+        // (Quran API, prayer times, maps) always goes to the network.
         if(e.request.mode === "navigate"){
           e.respondWith(fetch(e.request).catch(() => caches.match(self.registration.scope)));
         }
