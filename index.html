@@ -351,34 +351,6 @@ html[data-theme="dark"] .dua-card .arabic{color:var(--primary);}
 .tasbih-controls{display:flex; gap:10px; justify-content:center;}
 .tasbih-presets{display:flex; gap:8px; justify-content:center; margin-top:16px; flex-wrap:wrap;}
 
-/* ==========================================================================
-   12. VIDEOS
-   ========================================================================== */
-.video-card{overflow:hidden;}
-.video-thumb{
-  aspect-ratio:16/9; background:linear-gradient(135deg,var(--primary-dark),var(--primary)); position:relative;
-  display:flex; align-items:center; justify-content:center;
-}
-.video-thumb .play{
-  width:56px; height:56px; border-radius:50%; background:rgba(255,255,255,.92); color:var(--primary-dark);
-  display:flex; align-items:center; justify-content:center; font-size:1.3rem; transition:transform .2s ease;
-}
-.video-card:hover .video-thumb .play{transform:scale(1.1);}
-.video-thumb .cat-badge{position:absolute; top:10px; left:10px; background:rgba(0,0,0,.45); color:#fff; font-size:.72rem; padding:4px 11px; border-radius:100px;}
-.video-body{padding:16px 18px;}
-.video-body h3{font-size:.98rem; margin-bottom:4px;}
-.video-body .creator{color:var(--text-muted); font-size:.85rem; margin-bottom:14px;}
-.video-actions{display:flex; gap:8px;}
-.video-actions button{flex:1; padding:9px; border-radius:10px; border:1px solid var(--border); background:var(--surface-2); color:var(--text-muted); font-size:.82rem; display:flex; align-items:center; justify-content:center; gap:5px;}
-.video-actions button.liked, .video-actions button.saved{background:var(--primary-light); color:var(--primary); border-color:var(--primary);}
-.video-actions button:disabled{opacity:.4; cursor:not-allowed;}
-.video-body .desc{color:var(--text-muted); font-size:.85rem; margin:6px 0 12px; line-height:1.55;}
-.video-modal-overlay{position:fixed; inset:0; background:rgba(6,14,10,.78); z-index:300; display:none; align-items:center; justify-content:center; padding:20px;}
-.video-modal-overlay.open{display:flex;}
-.video-modal{width:100%; max-width:840px; background:#000; border-radius:18px; position:relative;}
-.video-modal .frame-wrap{position:relative; padding-top:56.25%; overflow:hidden; border-radius:18px;}
-.video-modal iframe{position:absolute; inset:0; width:100%; height:100%; border:none;}
-.video-modal-close{position:absolute; top:-46px; right:0; z-index:2; background:rgba(255,255,255,.25); color:#fff; border:none; width:38px; height:38px; border-radius:50%; font-size:1.1rem; cursor:pointer;}
 
 /* ==========================================================================
    13. SEARCH PAGE / ABOUT / CONTACT
@@ -465,7 +437,7 @@ html[data-theme="dark"] .form-success{color:var(--primary);}
       <a href="#" data-nav="quran"><span class="nav-label" data-navkey="quran">Quran</span></a>
       <a href="#" data-nav="hadith"><span class="nav-label" data-navkey="hadith">Hadith</span></a>
       <a href="#" data-nav="duas"><span class="nav-label" data-navkey="duas">Duas</span></a>
-      <a href="#" data-nav="videos"><span class="nav-label" data-navkey="videos">Videos</span></a>
+     
       <div class="more-wrap">
         <a href="#" id="moreToggleDesktop"><span class="nav-label" data-navkey="more">More</span> ▾</a>
         <div class="more-menu" id="moreMenuDesktop">
@@ -523,7 +495,7 @@ html[data-theme="dark"] .form-success{color:var(--primary);}
         <a class="quick-cat" data-nav="hadith"><span class="ic">🕌</span><span class="lbl nav-label" data-navkey="hadith">Hadith</span></a>
         <a class="quick-cat" data-nav="duas"><span class="ic">🤲</span><span class="lbl nav-label" data-navkey="duas">Duas</span></a>
         <a class="quick-cat" data-nav="azkar"><span class="ic">📿</span><span class="lbl nav-label" data-navkey="azkar">Azkar</span></a>
-        <a class="quick-cat" data-nav="videos"><span class="ic">🎥</span><span class="lbl nav-label" data-navkey="videos">Videos</span></a>
+
         <a class="quick-cat" data-nav="search"><span class="ic">🔍</span><span class="lbl nav-label" data-navkey="search">Search</span></a>
       </div>
     </div>
@@ -555,13 +527,7 @@ html[data-theme="dark"] .form-success{color:var(--primary);}
       <div class="card spotlight-card" id="dailyDuaCard"></div>
     </div>
 
-    <div class="section" style="padding-top:0">
-      <div class="section-head">
-        <div><div class="eyebrow" data-i18n="watchLearnEyebrow">Watch &amp; learn</div><h2 class="section-title" style="font-size:1.4rem" data-i18n="popularVideosTitle">Popular Islamic Videos</h2></div>
-        <button class="btn btn-outline btn-sm" data-nav="videos" data-i18n="seeAll">See all</button>
-      </div>
-      <div class="grid grid-4" id="popularVideosGrid"></div>
-    </div>
+ 
   </section>
 
   <!-- ============ QURAN ============ -->
@@ -640,30 +606,6 @@ html[data-theme="dark"] .form-success{color:var(--primary);}
       <div class="grid grid-2" id="azkarGrid" style="margin-top:10px"></div>
     </div>
   </section>
-
-  <!-- ============ VIDEOS ============ -->
-  <section class="page" id="page-videos">
-    <div class="section" style="padding-bottom:12px">
-      <div class="section-head">
-        <div><div class="eyebrow">Watch &amp; learn</div><h2 class="section-title">Islamic Videos — Quran, Hadith & Islamic Reminders</h2><p class="section-sub">Every video below is embedded from its creator's own official YouTube channel via YouTube's standard player — nothing is downloaded or re-hosted.</p></div>
-        <a class="btn btn-outline btn-sm" href="https://www.youtube.com/@yaqeeninstituteofficial" target="_blank" rel="noopener">Visit Yaqeen's YouTube Channel ↗</a>
-      </div>
-    </div>
-    <div class="section" style="padding-top:0; padding-bottom:20px">
-      <div class="section-head"><div><div class="eyebrow">Fresh from our verified source</div><h2 class="section-title" style="font-size:1.3rem">Latest Islamic Videos</h2></div></div>
-      <div class="grid grid-4" id="latestVideosGrid"></div>
-    </div>
-    <div class="section" style="padding-top:0">
-      <div class="section-head"><div><h2 class="section-title" style="font-size:1.3rem">Browse by Category</h2></div></div>
-      <div class="search-bar" style="margin-bottom:18px">
-        <span>🔍</span>
-        <input type="text" id="videoSearchInput" placeholder="Search videos by title or channel…">
-      </div>
-      <div class="scroll-row" id="videoCategoryChips"></div>
-      <div class="grid grid-4" id="videoGrid" style="margin-top:10px"></div>
-    </div>
-  </section>
-
 
   <!-- ============ PRAYER TIMES ============ -->
   <section class="page" id="page-prayertimes">
@@ -1192,7 +1134,7 @@ Contact section of Noor.
         <a href="#" data-nav="hadith"><span class="nav-label" data-navkey="hadith">Hadith</span></a>
         <a href="#" data-nav="duas"><span class="nav-label" data-navkey="duas">Duas</span></a>
         <a href="#" data-nav="azkar"><span class="nav-label" data-navkey="azkar">Azkar</span></a>
-        <a href="#" data-nav="videos"><span class="nav-label" data-navkey="videos">Videos</span></a>
+
         <a href="#" data-nav="about"><span class="nav-label" data-navkey="about">About</span></a>
         <a href="#" data-nav="contact"><span class="nav-label" data-navkey="contact">Contact</span></a>
       </nav>
@@ -1220,7 +1162,7 @@ Contact section of Noor.
     <a href="#" data-nav="hajjumrah"><span class="ic">🕋</span><span class="nav-label" data-navkey="hajjumrah">Hajj &amp; Umrah</span></a>
     <a href="#" data-nav="seerah"><span class="ic">📜</span><span class="nav-label" data-navkey="seerah">Seerah</span></a>
     <a href="#" data-nav="azkar"><span class="ic">📿</span><span class="nav-label" data-navkey="azkar">Azkar</span></a>
-    <a href="#" data-nav="videos"><span class="ic">🎥</span><span class="nav-label" data-navkey="videos">Videos</span></a>
+
     <a href="#" data-nav="zakat"><span class="ic">🧮</span><span class="nav-label" data-navkey="zakat_s">Zakat</span></a>
     <a href="#" data-nav="hijricalendar"><span class="ic">🌙</span><span class="nav-label" data-navkey="hijricalendar">Hijri Calendar</span></a>
     <a href="#" data-nav="saved"><span class="ic">🔖</span><span class="nav-label" data-navkey="saved">Saved</span></a>
@@ -1245,12 +1187,6 @@ Contact section of Noor.
 
 <div class="toast" id="toast"></div>
 
-<div class="video-modal-overlay" id="videoModalOverlay">
-  <div class="video-modal">
-    <button class="video-modal-close" id="videoModalClose">✕</button>
-    <div class="frame-wrap" id="videoFrameWrap"></div>
-  </div>
-</div>
 
 <script>
 /* ==========================================================================
@@ -1625,32 +1561,7 @@ const AZKAR = [
 //   at the end of this file for how to verify and add a video yourself
 //   (confirm the uploader is the true rights-holder and embedding is on).
 // ============================================================================
-const VIDEOS = [
-  {cat:"Islamic Reminders", type:"playlist", playlistId:"UU3vHW2h22WE-pNi5WJtRIjg",
-    title:"Latest from Yaqeen Institute", creator:"Yaqeen Institute for Islamic Research",
-    description:"Yaqeen's own official upload feed — reminders, reflections and short talks, refreshed automatically as they publish.",
-    source:"YouTube — official channel", sourceUrl:"https://www.youtube.com/@yaqeeninstituteofficial",
-    licenseStatus:"Verified — explicitly licensed for free educational use (yaqeeninstitute.org/watch)"},
-  {cat:"Islamic Lectures", type:"playlist", playlistId:"UU3vHW2h22WE-pNi5WJtRIjg",
-    title:"Yaqeen Institute — Lectures & Series", creator:"Yaqeen Institute for Islamic Research",
-    description:"In-depth lectures and multi-part series on Islamic theology, history and contemporary issues.",
-    source:"YouTube — official channel", sourceUrl:"https://www.youtube.com/@yaqeeninstituteofficial",
-    licenseStatus:"Verified — explicitly licensed for free educational use (yaqeeninstitute.org/watch)"},
-  {cat:"Seerah", type:"playlist", playlistId:"UU3vHW2h22WE-pNi5WJtRIjg",
-    title:"Yaqeen Institute — Seerah content", creator:"Yaqeen Institute for Islamic Research",
-    description:"Yaqeen regularly covers the life of Prophet Muhammad ﷺ within their upload feed — look for their Seerah-tagged episodes.",
-    source:"YouTube — official channel", sourceUrl:"https://www.youtube.com/@yaqeeninstituteofficial",
-    licenseStatus:"Verified — explicitly licensed for free educational use (yaqeeninstitute.org/watch)"},
-  {cat:"Hadith", type:"playlist", playlistId:"UU3vHW2h22WE-pNi5WJtRIjg",
-    title:"Yaqeen Institute — Hadith & Sunnah", creator:"Yaqeen Institute for Islamic Research",
-    description:"Yaqeen's published topic list explicitly includes hadith and sunnah content within this same official feed.",
-    source:"YouTube — official channel", sourceUrl:"https://www.youtube.com/@yaqeeninstituteofficial",
-    licenseStatus:"Verified — explicitly licensed for free educational use (yaqeeninstitute.org/watch)"},
-  {cat:"Islamic History", type:"playlist", playlistId:"UU3vHW2h22WE-pNi5WJtRIjg",
-    title:"Yaqeen Institute — Islamic History", creator:"Yaqeen Institute for Islamic Research",
-    description:"Yaqeen's published topic list explicitly includes Islamic history content within this same official feed.",
-    source:"YouTube — official channel", sourceUrl:"https://www.youtube.com/@yaqeeninstituteofficial",
-    licenseStatus:"Verified — explicitly licensed for free educational use (yaqeeninstitute.org/watch)"}
+
 ];
 
 const REMINDERS = [
@@ -1668,7 +1579,7 @@ const state = {
   likes: JSON.parse(localStorage.getItem("noor_likes")||"[]"),
   tasbihCount: parseInt(localStorage.getItem("noor_tasbih")||"0",10),
   tasbihTarget: parseInt(localStorage.getItem("noor_tasbih_target")||"0",10),
-  hadithFilter:"All", duaFilter:"All", azkarFilter:"All", videoFilter:"All",
+  hadithFilter:"All", duaFilter:"All", azkarFilter:"All", 
   currentSurah:null, surahTab:"arabic",
   uiLang: localStorage.getItem("noor_ui_lang") || "en",
   reciter: localStorage.getItem("noor_reciter") || "ar.alafasy",
@@ -1753,10 +1664,6 @@ function renderHome(){
     <div class="card-actions">
       <button class="btn btn-ghost btn-sm" onclick="shareContent('Daily Dua — Noor', ${JSON.stringify(d.arabic+' — '+d.translation+' ('+d.ref+')')})">↗ Share</button>
     </div>`;
-
-  const homeVideos = VIDEOS.map((v,i)=>({v,i})).filter(o=>isPlayable(o.v)).slice(0,4);
-  $("#popularVideosGrid").innerHTML = homeVideos.map(o=>videoCardHTML(o.v,o.i)).join("");
-  wireVideoActions($("#popularVideosGrid"));
 }
 
 // ---- Quran page ----
@@ -2033,85 +1940,6 @@ function renderTasbih(){
   $("#tasbihTarget").textContent = state.tasbihTarget>0 ? `Target: ${state.tasbihTarget}` : "No limit set — tap to count";
 }
 
-// ---- Videos page ----
-function videoCategories(){ return ["All", ...new Set(VIDEOS.map(v=>v.cat))]; }
-function isPlayable(v){ return v.type==="playlist" ? !!v.playlistId : !!v.youtubeId; }
-function videoCardHTML(v,i){
-  const id="video-"+i;
-  const playable = isPlayable(v);
-  // Playlist thumbnails use the channel/playlist icon convention; single-video thumbs use YouTube's predictable pattern.
-  const thumbUrl = playable && v.type!=="playlist" ? `https://img.youtube.com/vi/${v.youtubeId}/hqdefault.jpg` : "";
-  return `<div class="card video-card">
-    <div class="video-thumb" ${playable?`data-play="${i}"`:""} style="${thumbUrl?`background:url('${thumbUrl}') center/cover;`:""} ${playable?"cursor:pointer;":"opacity:.55;"}">
-      <span class="cat-badge">${v.cat}</span>
-      ${playable ? `<span class="play">▶</span>` : `<span style="font-size:1.8rem">⚠️</span>`}
-      ${v.type==="playlist" ? `<span style="position:absolute; bottom:10px; right:10px; background:rgba(0,0,0,.5); color:#fff; font-size:.7rem; padding:3px 9px; border-radius:100px">Channel feed</span>` : ""}
-    </div>
-    <div class="video-body">
-      <h3>${v.title}</h3>
-      <div class="creator">${v.creator}</div>
-      ${v.description ? `<p class="desc">${v.description}</p>` : ""}
-      ${v.licenseStatus ? `<p style="color:var(--primary); font-size:.74rem; margin-bottom:8px">✓ ${v.licenseStatus}</p>` : ""}
-      ${!playable ? `<p style="color:var(--text-soft); font-size:.76rem; margin-bottom:10px">⚠ This video is not available yet.</p>` : ""}
-      <div class="video-actions">
-        <button class="${isLiked(id)?'liked':''}" data-like="${id}" ${!playable?"disabled":""}>${isLiked(id)?'❤️':'🤍'} Like</button>
-        <button class="${isBookmarked('video',id)?'saved':''}" data-save="${id}" ${!playable?"disabled":""}>${isBookmarked('video',id)?'★':'☆'} Save</button>
-        <button data-share="${i}" ${!playable?"disabled":""}>↗ Share</button>
-      </div>
-      ${v.sourceUrl ? `<a href="${v.sourceUrl}" target="_blank" rel="noopener" style="display:block; margin-top:10px; font-size:.8rem; color:var(--primary); font-weight:600">Visit channel ↗</a>` : ""}
-    </div>
-  </div>`;
-}
-function renderVideoChips(){
-  $("#videoCategoryChips").innerHTML = videoCategories().map(c=>
-    `<button class="chip ${state.videoFilter===c?'active':''}" data-cat="${c}">${c}</button>`).join("");
-  $all("#videoCategoryChips .chip").forEach(c=> c.addEventListener("click",()=>{state.videoFilter=c.dataset.cat; renderVideoChips(); renderVideoGrid();}));
-}
-function renderVideoGrid(query){
-  const q=(query||$("#videoSearchInput")?.value||"").trim().toLowerCase();
-  const list = VIDEOS.map((v,i)=>({v,i})).filter(o=> (state.videoFilter==="All"||o.v.cat===state.videoFilter) && (!q||o.v.title.toLowerCase().includes(q)||o.v.creator.toLowerCase().includes(q)));
-  const wrap=$("#videoGrid");
-  if(list.length===0){ wrap.innerHTML=`<div class="empty-state" style="grid-column:1/-1"><div class="icon">🎥</div><p>No videos match. Try another keyword or category.</p></div>`; return; }
-  wrap.innerHTML = list.map(o=>videoCardHTML(o.v,o.i)).join("");
-  wireVideoActions(wrap);
-}
-function renderLatestVideos(){
-  const playable = VIDEOS.map((v,i)=>({v,i})).filter(o=>isPlayable(o.v));
-  const wrap=$("#latestVideosGrid");
-  if(!wrap) return;
-  if(playable.length===0){ wrap.innerHTML=`<div class="empty-state" style="grid-column:1/-1"><div class="icon">🎥</div><p>No verified videos are available yet.</p></div>`; return; }
-  wrap.innerHTML = playable.slice(0,4).map(o=>videoCardHTML(o.v,o.i)).join("");
-  wireVideoActions(wrap);
-}
-function wireVideoActions(wrap){
-  $all("[data-play]",wrap).forEach(el=> el.addEventListener("click",()=> openVideoModal(VIDEOS[parseInt(el.dataset.play)])));
-  $all("[data-like]:not([disabled])",wrap).forEach(btn=> btn.addEventListener("click",()=>{
-    const now=toggleLike(btn.dataset.like); btn.classList.toggle("liked",now); btn.innerHTML=(now?'❤️':'🤍')+" Like";
-  }));
-  $all("[data-save]:not([disabled])",wrap).forEach(btn=> btn.addEventListener("click",()=>{
-    const now=toggleBookmark('video',btn.dataset.save); btn.classList.toggle("saved",now); btn.innerHTML=(now?'★':'☆')+" Save";
-  }));
-  $all("[data-share]:not([disabled])",wrap).forEach(btn=>{
-    const v=VIDEOS[parseInt(btn.dataset.share)];
-    btn.addEventListener("click",()=>shareContent(v.title+" — Noor", v.title+" by "+v.creator+(v.sourceUrl?" ("+v.sourceUrl+")":"")));
-  });
-}
-
-// Opens the YouTube embed modal. Supports a single video (youtubeId) or a
-// channel's official uploads playlist (playlistId) — both use YouTube's
-// standard, legitimate embed endpoints. No downloading or re-hosting.
-function openVideoModal(v){
-  if(!isPlayable(v)){ showToast("No verified video is available in this category yet."); return; }
-  const src = v.type==="playlist"
-    ? `https://www.youtube.com/embed/videoseries?list=${v.playlistId}`
-    : `https://www.youtube.com/embed/${v.youtubeId}?autoplay=1`;
-  $("#videoFrameWrap").innerHTML = `<iframe src="${src}" title="${v.title}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
-  $("#videoModalOverlay").classList.add("open");
-}
-function closeVideoModal(){
-  $("#videoFrameWrap").innerHTML = "";
-  $("#videoModalOverlay").classList.remove("open");
-}
 
 // ---- Global search ----
 function renderSearchResults(query){
@@ -2124,7 +1952,6 @@ function renderSearchResults(query){
   const hadith = HADITH.filter(h=>h.text.toLowerCase().includes(q)||h.cat.toLowerCase().includes(q)||(h.urdu&&h.urdu.includes(query.trim())));
   const duas = DUAS.filter(d=>d.translation.toLowerCase().includes(q)||d.cat.toLowerCase().includes(q)||(d.urdu&&d.urdu.includes(query.trim())));
   const azkar = AZKAR.filter(a=>a.translation.toLowerCase().includes(q)||a.cat.toLowerCase().includes(q)||(a.urdu&&a.urdu.includes(query.trim())));
-  const videos = VIDEOS.filter(v=>v.title.toLowerCase().includes(q)||v.cat.toLowerCase().includes(q)||v.creator.toLowerCase().includes(q));
   const seerah = SEERAH.filter(s=>s.title.toLowerCase().includes(q)||s.english.toLowerCase().includes(q)||(s.urdu&&s.urdu.includes(query.trim())));
   const hajjUmrah = HAJJ_UMRAH_STAGES.filter(s=>s.title.toLowerCase().includes(q)||s.instruction.toLowerCase().includes(q));
 
@@ -2149,7 +1976,7 @@ function renderSearchResults(query){
     {label:"Azkar", items:azkar.map(a=>({t1:a.translation, t2:a.cat, onclick:()=>navigate('azkar')})), icon:"📿"},
     {label:"Seerah", items:seerah.map(s=>({t1:"Part "+s.part+": "+s.title, t2:"Life of Prophet Muhammad ﷺ", onclick:()=>{navigate('seerah'); state.seerahPart=s.part; renderSeerahChips(); renderSeerahContent();}})), icon:"📜"},
     {label:"Hajj & Umrah", items:hajjUmrah.map(s=>({t1:s.title, t2:s.applies.join(" & "), onclick:()=>{navigate('hajjumrah'); state.pilgrimageTab=s.applies[0]; renderHajjUmrahStages(); $all("#page-hajjumrah .tab-btn").forEach(b=>b.classList.toggle('active', b.dataset.pilgrimage===s.applies[0]));}})), icon:"🕋"},
-    {label:"Videos", items:videos.map(v=>({t1:v.title, t2:v.creator+" · "+v.cat, onclick:()=>navigate('videos')})), icon:"🎥"}
+
   ].filter(g=>g.items.length>0);
 
   if(groups.length===0){ wrap.innerHTML=`<div class="empty-state"><div class="icon">🔍</div><p>No results for "${query}". Try a broader keyword like "patience" or "morning".</p></div>`; return; }
@@ -2409,11 +2236,7 @@ function renderSavedPage(){
       const d = DUAS[idx]; if(!d) return "";
       return `<div class="card dua-card"><span class="badge cat">${d.cat}</span><div class="arabic" style="margin-top:12px">${d.arabic}</div><div class="translation" style="color:var(--text-muted)">${d.translation}</div><div class="ref">${d.ref}</div></div>`;
     }
-    if(type==="video"){
-      const idx = parseInt(idPart.replace("video-",""));
-      const v = VIDEOS[idx]; if(!v) return "";
-      return videoCardHTML(v, idx);
-    }
+    
     if(type==="surah"){
       const s = SURAH_META.find(x=>String(x.number)===idPart); if(!s) return "";
       return `<div class="card surah-row" data-open-surah="${s.number}"><div class="surah-num">${s.number}</div><div class="meta"><div class="name-en">${s.name} <span style="color:var(--text-soft); font-weight:400">— ${s.meaning}</span></div><div class="name-sub">${s.ayahs} verses · ${s.type}</div></div><div class="name-ar arabic">${s.arabic}</div></div>`;
@@ -2677,9 +2500,7 @@ const SOURCES = [
     license:"Classical religious texts, public domain scripture/hadith corpus", detail:"18 hand-curated, well-established narrations across 12 categories, referenced by collection and number. No audio/voiceover feature is offered for Hadith at this time.", attribution:"Collection + hadith number cited on every card."},
   {title:"Duas & Azkar (Arabic, English, Urdu)", status:"info", source:"Quran and the hadith collections above (in the style of Hisnul Muslim)", url:null,
     license:"Classical religious texts", detail:"Every entry has Arabic, transliteration, English and Urdu, with its Quranic or hadith reference. No audio/voiceover feature is offered for Duas. Azkar retains a voiceover status line: VERIFIED SOURCE REQUIRED.", attribution:"Reference cited on every card."},
-  {title:"Islamic videos", status:"verified", source:"Yaqeen Institute for Islamic Research — official YouTube channel", url:"https://www.youtube.com/@yaqeeninstituteofficial",
-    license:"Explicitly licensed for free educational use", detail:"Confirmed at yaqeeninstitute.org/watch. Embedded via YouTube's own player from the channel's official uploads feed, covering Islamic Reminders, Lectures, Seerah, Hadith and Islamic History. Quran Recitation, Dua and Azkar video categories are intentionally not shown at all — no channel with confirmed reuse rights was found for these after repeated searches, and we chose to omit them rather than display an unverified placeholder.",
-    attribution:"Channel name + link shown on every video card."},
+
   {title:"Prayer times", status:"verified", source:"Aladhan API", url:"https://aladhan.com",
     license:"Free public API", detail:"Live calculation for whatever city/coordinates the visitor supplies. Method: ISNA (configurable in code).", attribution:"Not required by the API, but credited on the Prayer Times page."},
   {title:"Seerah (life of the Prophet ﷺ)", status:"info", source:"Ibn Hisham, Ibn Kathir, Safi-ur-Rahman al-Mubarakpuri (Ar-Raheeq Al-Makhtum), Sahih al-Bukhari & Sahih Muslim", url:null,
@@ -2706,7 +2527,8 @@ function renderSources(){
 const PAGE_TITLES = {
   home:"Noor — Quran, Hadith, Duas & Reminders", quran:"Quran — Noor",
   hadith:"Hadith — Noor", duas:"Duas — Noor",
-  azkar:"Azkar & Tasbih — Noor", videos:"Islamic Videos — Noor",
+  azkar:"Azkar & Tasbih — Noor",
+
   prayertimes:"Prayer Times — Noor", seerah:"Seerah of the Prophet ﷺ — Noor",
   hajjumrah:"Hajj & Umrah Guide — Noor", zakat:"Zakat Calculator — Noor",
   hijricalendar:"Hijri Calendar — Noor",
@@ -2731,7 +2553,7 @@ function navigate(page){
   if(page==="hadith" && !$("#hadithGrid").childElementCount) renderHadithGrid("");
   if(page==="duas" && !$("#duaGrid").childElementCount) renderDuaGrid();
   if(page==="azkar" && !$("#azkarGrid").childElementCount) renderAzkarGrid();
-  if(page==="videos" && !$("#videoGrid").childElementCount){ renderVideoGrid(); renderLatestVideos(); }
+ 
   if(page==="sources" && !$("#sourcesGrid").childElementCount) renderSources();
   if(page==="seerah" && !$("#seerahPartChips").childElementCount){ renderSeerahChips(); renderSeerahContent(); }
   if(page==="hajjumrah" && !$("#hajjUmrahStages").childElementCount) renderHajjUmrahStages();
@@ -2798,13 +2620,6 @@ $("#hadithSearchInput").addEventListener("input",(e)=> renderHadithGrid(e.target
 // Global search
 $("#globalSearchInput").addEventListener("input",(e)=> renderSearchResults(e.target.value));
 
-// Video search
-$("#videoSearchInput").addEventListener("input",(e)=> renderVideoGrid(e.target.value));
-
-// YouTube modal close
-$("#videoModalClose").addEventListener("click", closeVideoModal);
-$("#videoModalOverlay").addEventListener("click",(e)=>{ if(e.target.id==="videoModalOverlay") closeVideoModal(); });
-document.addEventListener("keydown",(e)=>{ if(e.key==="Escape") closeVideoModal(); });
 
 // Tasbih counter
 $("#tasbihIncrement").addEventListener("click", ()=>{
@@ -2916,8 +2731,7 @@ function toggleFieldError(fieldId, ok){ $("#"+fieldId).classList.toggle("invalid
      you have personally verified.
    • New Dua            → add an object to the DUAS array above.
    • New Azkar          → add an object to the AZKAR array above.
-   • New YouTube video  → add an object to the VIDEOS array above and replace
-     "PASTE_YOUTUBE_ID_HERE" with a real, verified, embeddable video ID.
+   
    ========================================================================== */
 
 /* ==========================================================================
@@ -2928,7 +2742,7 @@ function toggleFieldError(fieldId, ok){ $("#"+fieldId).classList.toggle("invalid
    Arabic + Urdu + English where it is provided.)
    ========================================================================== */
 const NAV_LABELS = {
-  home:"ہوم", quran:"قرآن", hadith:"حدیث", duas:"دعائیں", videos:"ویڈیوز", more:"مزید",
+  home:"ہوم", quran:"قرآن", hadith:"حدیث", duas:"دعائیں", more:"مزید",
   prayertimes:"نماز کے اوقات", hajjumrah:"حج و عمرہ", seerah:"سیرت", azkar:"اذکار",
   zakat:"زکوٰۃ کیلکولیٹر", hijricalendar:"ہجری کیلنڈر", saved:"محفوظ شدہ",
   search:"تلاش", about:"ہمارے بارے میں", sources:"ذرائع و لائسنس", contact:"رابطہ", darkmode:"ڈارک موڈ",
@@ -2942,14 +2756,14 @@ const I18N = {
   fromQuranEyebrow:"قرآن سے", featuredVerseTitle:"منتخب آیت",
   fromSunnahEyebrow:"سنت سے", featuredHadithTitle:"منتخب حدیث",
   supplicationEyebrow:"دعا", dailyDuaTitle:"روزانہ کی دعا",
-  watchLearnEyebrow:"دیکھیں اور سیکھیں", popularVideosTitle:"مقبول اسلامی ویڈیوز", seeAll:"سب دیکھیں"
+ seeAll:"سب دیکھیں"
 };
 const PAGE_HEADERS = {
   quran:{eyebrow:"قرآنِ کریم", title:"سورتیں", sub:"تمام ۱۱۴ سورتیں — مکمل عربی متن، انگریزی و اردو ترجمہ اور تلاوت کے ساتھ۔"},
   hadith:{eyebrow:"نبی کریم ﷺ کے ارشادات", title:"احادیث کا مجموعہ", sub:"صحیح بخاری، صحیح مسلم اور جامع ترمذی جیسے معتبر مجموعوں سے حوالہ شدہ مستند احادیث۔"},
   duas:{eyebrow:"دعائیں", title:"دعائیں", sub:"روزمرہ کی دعائیں — عربی، تلفظ، ترجمہ اور حوالے کے ساتھ، حصن المسلم اور مستند احادیث سے۔"},
   azkar:{eyebrow:"ذکر", title:"اذکار اور تسبیح", sub:"صبح، شام اور نماز کے بعد کے اذکار، ساتھ ہی ڈیجیٹل تسبیح کاؤنٹر۔"},
-  videos:{eyebrow:"دیکھیں اور سیکھیں", title:"اسلامی ویڈیوز", sub:"ہر ویڈیو اس کے تخلیق کار کے سرکاری یوٹیوب چینل سے یوٹیوب کے پلیئر کے ذریعے دکھائی جاتی ہے — کچھ بھی ڈاؤن لوڈ یا ہوسٹ نہیں کیا جاتا۔"},
+
   prayertimes:{eyebrow:"نماز", title:"نماز کے اوقات", sub:"آپ کے مقام کے لیے براہِ راست اوقاتِ نماز (Aladhan API سے)۔ کوئی بھی شہر چنیں یا براؤزر کو مقام معلوم کرنے دیں۔"},
   seerah:{eyebrow:"سیرتِ طیبہ", title:"سیرتِ نبی محمد ﷺ", sub:"پانچ ترتیب وار حصے — عربی، انگریزی اور اردو میں، مستند کلاسیکی مصادر کی بنیاد پر۔ جہاں علماء میں اختلاف ہے وہاں اسے واضح لکھا گیا ہے۔"},
   hajjumrah:{eyebrow:"حج و عمرہ", title:"حج و عمرہ گائیڈ", sub:"ہر مرحلے کے لیے مستند دعا یا ذکر کے ساتھ رہنمائی۔ جہاں کوئی مخصوص دعا ثابت نہیں وہاں صاف بتایا گیا ہے کہ عام ذکر، دعا یا تلاوت کی جا سکتی ہے۔"},
