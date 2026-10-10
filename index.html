@@ -2215,7 +2215,7 @@ function renderSavedPage(){
     return "";
   }).filter(Boolean);
   wrap.innerHTML = `<div class="grid grid-2">${cards.join("")}</div>`;
-  wireVideoActions(wrap);
+  
   $all("[data-open-surah]", wrap).forEach(el=> el.addEventListener("click", ()=>{ navigate("quran"); openSurah(parseInt(el.dataset.openSurah)); }));
 }
 // ============================================================================
